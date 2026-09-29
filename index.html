@@ -8,8 +8,67 @@
 <meta name="theme-color" content="#fbf8f3">
 <meta property="og:title" content="Владислав Сахнов — эксперт по недвижимости">
 <meta property="og:description" content="Продам вашу квартиру дорого и безопасно. Сделка под ключ в 3 этапа.">
-<meta property="og:image" content="img/studio.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vs-pro-m2.ru/">
+<meta property="og:image" content="https://vs-pro-m2.ru/img/portrait.jpg">
+<meta property="og:locale" content="ru_RU">
+<link rel="canonical" href="https://vs-pro-m2.ru/">
 <link rel="stylesheet" href="fonts/fonts.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://vs-pro-m2.ru/#website",
+      "url": "https://vs-pro-m2.ru/",
+      "name": "Владислав Сахнов — эксперт по недвижимости",
+      "inLanguage": "ru-RU",
+      "publisher": { "@id": "https://vs-pro-m2.ru/#agent" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vs-pro-m2.ru/#person",
+      "name": "Владислав Сахнов",
+      "jobTitle": "Директор по развитию",
+      "worksFor": { "@type": "Organization", "name": "Альфа Дом" },
+      "telephone": "+7-925-502-37-39",
+      "email": "mailto:panorama-x@mail.ru",
+      "image": "https://vs-pro-m2.ru/img/portrait.jpg",
+      "url": "https://vs-pro-m2.ru/"
+    },
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://vs-pro-m2.ru/#agent",
+      "name": "Владислав Сахнов — эксперт по недвижимости",
+      "description": "Продажа и покупка недвижимости под ключ: подготовка объекта, продажа без лишнего торга, безопасное сопровождение сделки. Первая консультация бесплатно.",
+      "url": "https://vs-pro-m2.ru/",
+      "image": "https://vs-pro-m2.ru/img/portrait.jpg",
+      "logo": "https://vs-pro-m2.ru/img/portrait.jpg",
+      "telephone": "+7-925-502-37-39",
+      "email": "mailto:panorama-x@mail.ru",
+      "employee": { "@id": "https://vs-pro-m2.ru/#person" },
+      "parentOrganization": { "@type": "Organization", "name": "Альфа Дом" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+7-925-502-37-39",
+        "contactType": "customer service",
+        "availableLanguage": "Russian"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Продажа недвижимости под ключ",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Подготовка к продаже", "description": "Предпродажная подготовка объекта, реклама, 300–500 объявлений в неделю, анализ рынка и конкурентов." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Процесс продажи", "description": "Обработка звонков, показы, создание ажиотажа, переговоры в интересах продавца." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Процесс сделки", "description": "Пакет документов под любой вид расчётов, предварительный договор, расчёт по ДКП, передача ключей." } },
+          { "@type": "Offer", "price": "0", "priceCurrency": "RUB", "itemOffered": { "@type": "Service", "name": "Первичная консультация" } }
+        ]
+      }
+    }
+  ]
+}
+</script>
 <script>
 (function(){var d=document.documentElement,rm=false;d.classList.add('js');
 try{rm=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
@@ -194,14 +253,12 @@ header.hide{transform:translateY(-100%)}
 .seal text{font-size:9.4px;letter-spacing:.14em;fill:var(--gold-2);font-family:Manrope,sans-serif;font-weight:600}
 .seal .core{width:54px;height:54px;border-radius:50%;background:var(--grad-gold);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:700;color:#1a1408}
 .principles{list-style:none;border-top:1px solid var(--line);margin-bottom:44px}
-.principles li{position:relative;display:grid;grid-template-columns:66px 1fr 30px;align-items:center;gap:8px;padding:24px 0;border-bottom:1px solid var(--line)}
+.principles li{position:relative;display:grid;grid-template-columns:66px 1fr;align-items:center;gap:8px;padding:24px 0;border-bottom:1px solid var(--line)}
 .principles li::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
 .principles .pn{width:48px;height:48px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--gold);transition:background .5s,color .5s,border-color .5s,transform .6s var(--ease)}
 .principles .pt{font-family:"Cormorant Garamond",serif;font-size:clamp(22px,2.1vw,30px);font-weight:500;line-height:1.2;color:var(--text);transition:transform .6s var(--ease)}
-.principles .pa{width:22px;height:22px;color:var(--gold);opacity:0;transform:translateX(-12px);transition:opacity .5s,transform .6s var(--ease)}
 .principles li.on::after,.principles li:hover::after{transform:scaleX(1)}
 .principles li.on .pn,.principles li:hover .pn{background:var(--grad-gold);color:#1a1408;border-color:transparent;transform:rotate(-8deg)}
-.principles li.on .pa,.principles li:hover .pa{opacity:1;transform:none}
 .principles li:hover .pt{transform:translateX(6px)}
 .quote{position:relative;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(24px,2.4vw,32px);line-height:1.2;padding-left:58px;color:var(--text-2)}
 .quote::before{content:"“";position:absolute;left:-4px;top:-22px;font-size:120px;line-height:1;color:var(--gold);font-style:normal}
@@ -304,13 +361,6 @@ header.hide{transform:translateY(-100%)}
 .chip .ic{width:34px;height:34px;border-radius:50%;background:var(--grad-gold);color:#1a1408;display:grid;place-items:center}
 .chip .ic svg{width:16px;height:16px}
 
-/* big call */
-.bigcall{padding:clamp(34px,5vw,64px) 0;overflow:hidden;border-block:1px solid var(--line);background:var(--bg)}
-.bigcall-track{display:flex;align-items:center;gap:4vw;width:max-content;font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(56px,9vw,150px);line-height:1;letter-spacing:-.03em;white-space:nowrap;padding-left:4vw}
-.bigcall-track .o{color:transparent;-webkit-text-stroke:1.2px var(--gold);transition:color .4s}
-.bigcall-track em{font-style:italic;color:var(--gold)}
-.bigcall-track .dot{width:.26em;height:.26em;border-radius:50%;background:var(--grad-gold);flex-shrink:0}
-.bigcall-track:hover .o{color:var(--gold)}
 
 /* contact */
 .contact{padding-bottom:140px}
@@ -365,6 +415,17 @@ footer .container{display:flex;justify-content:space-between;gap:14px 20px;flex-
 .legal-links a:hover,footer a:hover{color:var(--gold-2)}
 
 .mbar{display:none}
+
+/* analytics consent */
+.cc{position:fixed;left:16px;bottom:16px;z-index:80;max-width:420px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:20px;padding:20px 22px;box-shadow:var(--shadow);font-size:14px;line-height:1.5;color:var(--text-2);transform:translateY(calc(100% + 40px));transition:transform .6s var(--ease)}
+.cc.show{transform:none}
+.cc b{display:block;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:6px}
+.cc a{color:var(--gold-2);text-decoration:underline;text-underline-offset:3px}
+.cc-btns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.cc-btns .btn{padding:12px 18px;font-size:13.5px}
+.legal-links button{background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer}
+.legal-links button:hover{color:var(--gold-2)}
+@media (max-width:640px){.cc{left:12px;right:12px;max-width:none;bottom:calc(84px + env(safe-area-inset-bottom))}}
 
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -424,7 +485,7 @@ footer .container{display:flex;justify-content:space-between;gap:14px 20px;flex-
   .photo figcaption{padding:60px 20px 18px}
   .photo figcaption b{font-size:23px}
   .svc-cta{padding:22px}
-  .principles li{grid-template-columns:54px 1fr 24px;padding:20px 0}
+  .principles li{grid-template-columns:54px 1fr;padding:20px 0}
   .principles .pn{width:42px;height:42px;font-size:19px}
   .stage{border-radius:24px}
   .svc-cta .btn{width:100%}
@@ -565,10 +626,10 @@ footer .container{display:flex;justify-content:space-between;gap:14px 20px;flex-
       </figure>
       <div>
         <ol class="principles">
-          <li><span class="pn">1</span><span class="pt">Работаю в интересах клиента, а не «лишь бы продать»</span><svg class="pa"><use href="#i-arrow"/></svg></li>
-          <li><span class="pn">2</span><span class="pt">Еженедельный отчёт и мониторинг рынка</span><svg class="pa"><use href="#i-arrow"/></svg></li>
-          <li><span class="pn">3</span><span class="pt">Финансовые инструменты против торга</span><svg class="pa"><use href="#i-arrow"/></svg></li>
-          <li><span class="pn">4</span><span class="pt">Полное сопровождение до передачи ключей</span><svg class="pa"><use href="#i-arrow"/></svg></li>
+          <li><span class="pn">1</span><span class="pt">Работаю в интересах клиента, а не «лишь бы продать»</span></li>
+          <li><span class="pn">2</span><span class="pt">Еженедельный отчёт и мониторинг рынка</span></li>
+          <li><span class="pn">3</span><span class="pt">Финансовые инструменты против торга</span></li>
+          <li><span class="pn">4</span><span class="pt">Полное сопровождение до передачи ключей</span></li>
         </ol>
         <blockquote class="quote" data-fade>Моя задача — чтобы вы продали дороже, а купили спокойнее</blockquote>
       </div>
@@ -716,13 +777,6 @@ footer .container{display:flex;justify-content:space-between;gap:14px 20px;flex-
   </div>
 </section>
 
-<!-- BIG CALL -->
-<div class="bigcall">
-  <a href="tel:+79255023739" class="bigcall-track" aria-label="Позвонить: +7 925 502-37-39">
-    <span>Позвоните</span><span class="dot"></span><span class="o">+7 925 502-37-39</span><span class="dot"></span><span><em>обсудим</em> вашу квартиру</span><span class="dot"></span><span class="o">+7 925 502-37-39</span><span class="dot"></span>
-  </a>
-</div>
-
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="container">
@@ -786,10 +840,21 @@ footer .container{display:flex;justify-content:space-between;gap:14px 20px;flex-
       <a href="privacy.html">Политика обработки персональных данных</a>
       <a href="consent.html">Согласие на обработку ПД</a>
       <a href="cookies.html">Политика cookie</a>
+      <button type="button" id="ccOpen">Настройки cookie</button>
       <a href="terms.html">Пользовательское соглашение и реквизиты</a>
     </nav>
   </div>
 </footer>
+
+<div class="cc" id="cc" role="dialog" aria-live="polite" aria-label="Настройки файлов cookie" hidden>
+  <b>Настройки cookie</b>
+  С вашего согласия подключим Яндекс Метрику, чтобы анализировать посещаемость и улучшать сайт. Аналитика необязательна — сайт работает и без неё.
+  <div style="margin-top:8px"><a href="cookies.html#analytics" target="_blank">Согласие на обработку данных для аналитики</a> · <a href="privacy.html" target="_blank">Политика ПД</a></div>
+  <div class="cc-btns">
+    <button type="button" class="btn btn-gold" id="ccYes">Разрешить аналитику</button>
+    <button type="button" class="btn btn-ghost" id="ccNo">Только необходимые</button>
+  </div>
+</div>
 
 <!-- mobile call bar -->
 <div class="mbar" id="mbar">
@@ -841,6 +906,30 @@ form.addEventListener('submit',async e=>{
   location.href='mailto:panorama-x@mail.ru?subject='+encodeURIComponent('Заявка с сайта — '+name)+'&body='+encodeURIComponent(body);
   fStatus.className='form-msg ok';fStatus.textContent='Откроется почта с готовым письмом — нажмите «Отправить». Или позвоните: +7 925 502-37-39.';
 });
+
+/* Яндекс Метрика: загружается только после согласия посетителя (см. cookies.html#analytics) */
+const YM_ID=113154073,CC_KEY='analytics-consent-v1';
+const loadMetrika=()=>{
+  if(window.ym)return;
+  (function(m,e,t,r,i,k,a){
+    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+YM_ID,'ym');
+  ym(YM_ID,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:'dataLayer',referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+};
+const cc=document.getElementById('cc');
+const ccGet=()=>{try{return localStorage.getItem(CC_KEY)}catch(_){return null}};
+const ccSet=v=>{try{localStorage.setItem(CC_KEY,v)}catch(_){}};
+const ccShow=()=>{cc.hidden=false;requestAnimationFrame(()=>requestAnimationFrame(()=>cc.classList.add('show')))};
+const ccHide=()=>{cc.classList.remove('show');setTimeout(()=>{cc.hidden=true},600)};
+document.getElementById('ccYes').addEventListener('click',()=>{ccSet('granted:'+new Date().toISOString());ccHide();loadMetrika()});
+document.getElementById('ccNo').addEventListener('click',()=>{const was=(ccGet()||'').startsWith('granted');ccSet('denied');ccHide();if(was)location.reload()});
+document.getElementById('ccOpen').addEventListener('click',ccShow);
+const ccState=ccGet();
+if(ccState&&ccState.startsWith('granted'))loadMetrika();
+else if(!ccState)setTimeout(ccShow,1800);
 </script>
 <script src="js/gsap.min.js"></script>
 <script src="js/ScrollTrigger.min.js"></script>

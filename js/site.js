@@ -175,9 +175,6 @@
   gsap.fromTo('.team-img', { clipPath: 'inset(0% 100% 0% 0% round 30px)' }, { clipPath: 'inset(0% 0% 0% 0% round 30px)', duration: 1.5, ease: 'expo.inOut', scrollTrigger: { trigger: '.team-img', start: 'top 82%' } });
   gsap.fromTo('.team-img img', { yPercent: -5 }, { yPercent: 5, ease: 'none', scrollTrigger: { trigger: '.team-img', start: 'top bottom', end: 'bottom top', scrub: true } });
 
-  /* big call line drifts with the scroll */
-  gsap.fromTo('.bigcall-track', { xPercent: 0 }, { xPercent: -30, ease: 'none', scrollTrigger: { trigger: '.bigcall', start: 'top bottom', end: 'bottom top', scrub: .5 } });
-
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
   addEventListener('load', () => ScrollTrigger.refresh());
 })();
