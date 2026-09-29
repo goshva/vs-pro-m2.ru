@@ -1,0 +1,4 @@
+# secrets — never commit
+includes/config.local.php
+deploy/deploy.config.json
+venv/

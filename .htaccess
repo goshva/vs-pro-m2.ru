@@ -1,0 +1,49 @@
+# vs-pro-m2.ru — Apache config for reg.ru shared hosting (PHP 8.3, CGI)
+
+DirectoryIndex index.php index.html
+
+# ---------- old static index.html -> PHP home page ----------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^index\.html?$ / [R=301,L]
+</IfModule>
+
+# ---------- security headers ----------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---------- charset ----------
+AddDefaultCharset UTF-8
+
+# ---------- disable directory listing ----------
+Options -Indexes
+
+# ---------- gzip/deflate compression ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+  AddOutputFilterByType DEFLATE application/xml application/rss+xml application/xhtml+xml
+  AddOutputFilterByType DEFLATE image/svg+xml font/ttf font/otf application/font-woff application/font-woff2
+</IfModule>
+
+# ---------- browser caching for static assets ----------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                "access plus 1 year"
+  ExpiresByType application/javascript  "access plus 1 year"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/x-icon            "access plus 1 year"
+  ExpiresByType font/woff2              "access plus 1 year"
+  ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>
+
+# ---------- block access to source/data files that should never be served ----------
+<FilesMatch "\.(md|log|sql|env|py|json)$">
+  Require all denied
+</FilesMatch>

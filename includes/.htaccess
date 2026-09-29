@@ -1,0 +1,2 @@
+# These files are only ever pulled in via PHP require/include — never served directly.
+Require all denied

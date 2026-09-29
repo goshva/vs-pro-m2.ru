@@ -1,0 +1,19 @@
+{
+  "host": "server281.hosting.reg.ru",
+  "port": 22,
+  "username": "u3662234",
+  "auth": {
+    "method": "key",
+    "key_path": "~/.ssh/id_ed25519"
+  },
+  "remote_path": "/var/www/u3662234/data/www/vs-pro-m2.ru",
+
+  "_auth_method_password_example": {
+    "method": "password",
+    "password": "REPLACE_ME"
+  },
+
+  "extra_files": [
+    "includes/config.local.php"
+  ]
+}

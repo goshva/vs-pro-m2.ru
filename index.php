@@ -1,7 +1,12 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__ . '/includes/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="csrf-token" content="<?= e(csrf_token()) ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Владислав Сахнов — эксперт по недвижимости | Альфа Дом</title>
 <meta name="description" content="Владислав Сахнов, директор по развитию компании «Альфа Дом». Продажа и покупка недвижимости под ключ: подготовка объекта, продажа без торга, безопасная сделка. +7 925 502-37-39">
@@ -826,6 +831,7 @@ footer .container{display:flex;justify-content:space-between;gap:14px 20px;flex-
           <label for="f-msg">Комментарий</label>
           <textarea id="f-msg" name="message" maxlength="1000" placeholder="Например: хочу продать двухкомнатную квартиру"></textarea>
         </div>
+        <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="website" id="f-website" tabindex="-1" autocomplete="off"></div>
         <p class="hint">Пожалуйста, не указывайте в сообщении паспортные данные, сведения о банковских картах и персональные данные других людей.</p>
         <label class="check" id="consentWrap">
           <input type="checkbox" id="f-consent" name="consent" required>
@@ -883,9 +889,10 @@ document.getElementById('vcf').addEventListener('click',e=>{
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([v],{type:'text/vcard;charset=utf-8'}));a.download='Vladislav_Sakhnov.vcf';document.body.appendChild(a);a.click();a.remove();
 });
 
-/* Заявка. FORM_ENDPOINT — адрес обработчика на российском сервере (POST, JSON).
-   Пока пусто — заявка открывается письмом в почтовом клиенте на panorama-x@mail.ru. */
-const FORM_ENDPOINT='';
+/* Заявка. FORM_ENDPOINT — PHP-обработчик на хостинге (POST, JSON), шлёт письмо на panorama-x@mail.ru.
+   Если пусто — заявка открывается письмом в почтовом клиенте. */
+const FORM_ENDPOINT='api/submit.php';
+const CSRF_TOKEN=(document.querySelector('meta[name="csrf-token"]')||{}).content||'';
 const CONSENT_VERSION='Согласие на обработку ПД, версия 1 от 28.09.2026';
 const form=document.getElementById('leadForm'),consent=document.getElementById('f-consent'),
       submit=document.getElementById('f-submit'),fStatus=document.getElementById('f-status'),
@@ -899,14 +906,16 @@ form.addEventListener('submit',async e=>{
   fStatus.className='form-msg';
   if(!consent.checked){document.getElementById('consentWrap').classList.add('err');fStatus.className='form-msg bad';fStatus.textContent='Чтобы отправить заявку, отметьте согласие на обработку персональных данных.';return}
   if(!name||!phoneOk){fStatus.className='form-msg bad';fStatus.textContent='Укажите имя и номер телефона.';return}
-  const data={name,phone,message,consent:true,consent_version:CONSENT_VERSION,consent_at:new Date().toISOString(),page:location.href};
+  const data={form_type:'lead',name,phone,message,website:document.getElementById('f-website').value,consent:true,consent_version:CONSENT_VERSION,consent_at:new Date().toISOString(),page:location.href};
   if(FORM_ENDPOINT){
     submit.disabled=true;
     try{
-      const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-      if(!r.ok)throw 0;
-      form.reset();fStatus.className='form-msg ok';fStatus.textContent='Спасибо! Заявка отправлена, я свяжусь с вами.';
-    }catch(_){fStatus.className='form-msg bad';fStatus.textContent='Не удалось отправить. Позвоните: +7 925 502-37-39.';submit.disabled=false}
+      const r=await fetch(FORM_ENDPOINT,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Token':CSRF_TOKEN},body:JSON.stringify(data)});
+      const res=await r.json().catch(()=>({}));
+      if(!r.ok||!res.ok)throw res.message||'';
+      form.reset();fStatus.className='form-msg ok';fStatus.textContent=res.message||'Спасибо! Заявка отправлена, я свяжусь с вами.';
+    }catch(msg){fStatus.className='form-msg bad';fStatus.textContent=(typeof msg==='string'&&msg)||'Не удалось отправить. Позвоните: +7 925 502-37-39.'}
+    submit.disabled=false;
     return;
   }
   const body=['Имя: '+name,'Телефон: '+phone,message?'Комментарий: '+message:'','','—','Согласие на обработку ПД дано: '+new Date().toLocaleString('ru-RU'),CONSENT_VERSION,'Страница: '+location.href].filter((l,i)=>l||i>2).join('\n');
