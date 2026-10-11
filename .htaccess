@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Только HTTPS (политика ПД, п. 6.2). Проверка заголовка прокси исключает цикл редиректов за nginx.
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://vs-pro-m2.ru%{REQUEST_URI} [R=301,L]
+
+# Без www — как в canonical
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://vs-pro-m2.ru%{REQUEST_URI} [R=301,L]
